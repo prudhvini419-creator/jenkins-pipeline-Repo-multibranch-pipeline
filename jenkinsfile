@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('plan') {
       steps {
-        echo 'To plan application in the jenkins'
+        echo 'To plan application in the jenkins'"new-changes"
       }
     }
 
@@ -11,7 +11,7 @@ pipeline {
       parallel {
         stage('code') {
           steps {
-            echo 'start working on the development'
+            echo 'start working on the development'"new-changes"
           }
         }
 
