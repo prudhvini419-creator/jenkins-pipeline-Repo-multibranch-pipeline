@@ -1,50 +1,20 @@
 pipeline {
-  agent any
-  stages {
-    stage('plan') {
-      steps {
-        echo 'To plan application in the jenkins'"new-changes"
-      }
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo "Building branch: ${env.BRANCH_NAME}"
+            }
+        }
+        stage('Test') {
+            steps {
+                echo "Testing..."
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo "Deploying..."
+            }
+        }
     }
-
-    stage('code') {
-      parallel {
-        stage('code') {
-          steps {
-            echo 'start working on the development'"new-changes"
-          }
-        }
-
-        stage('build') {
-          steps {
-            echo 'to build the code'
-          }
-        }
-
-        stage('test') {
-          steps {
-            echo 'to test the application'
-          }
-        }
-
-        stage('deploy') {
-          steps {
-            echo 'to deploy the appliation'
-          }
-        }
-
-        stage('operate') {
-          steps {
-            echo 'to access the application'
-          }
-        }
-
-      }
-    }
-
-  }
 }
-
-
-
-
