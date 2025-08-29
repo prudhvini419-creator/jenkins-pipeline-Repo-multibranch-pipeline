@@ -1,0 +1,50 @@
+pipeline {
+  agent any
+  stages {
+    stage('plan') {
+      steps {
+        echo 'To plan application in the jenkins'
+      }
+    }
+
+    stage('code') {
+      parallel {
+        stage('code') {
+          steps {
+            echo 'start working on the development'
+          }
+        }
+
+        stage('build') {
+          steps {
+            echo 'to build the code'
+          }
+        }
+
+        stage('test') {
+          steps {
+            echo 'to test the application'
+          }
+        }
+
+        stage('deploy') {
+          steps {
+            echo 'to deploy the appliation'
+          }
+        }
+
+        stage('operate') {
+          steps {
+            echo 'to access the application'
+          }
+        }
+
+      }
+    }
+
+  }
+}
+
+
+
+
